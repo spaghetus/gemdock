@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  gemdock:
+    image: ghcr.io/spaghetus/gemdock
+    build: .
+    ports:
+      - "1965:1965"
+    volumes:
+      - "./content:/content"
+      - "./certs:/certs"
+    command: agate --content /content --certs /certs --hostname=localhost --lang=en-US
